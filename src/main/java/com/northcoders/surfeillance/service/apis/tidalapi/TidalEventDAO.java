@@ -19,7 +19,7 @@ public class TidalEventDAO {
     static final String HEADER_KEY = config.getHeaderKey();
     static final String HEADER_VALUE = config.getHeaderVal();
 
-    public static List<TidalEvent> tidalDAO(String stationId){
+    public static TidalEvent getTideByLocation(String stationId){
         ObjectMapper om = new ObjectMapper();
         String url = String.format(BASE_URL, stationId);
         try {
@@ -31,8 +31,7 @@ public class TidalEventDAO {
             var response = client.send(req, HttpResponse.BodyHandlers.ofString());
 
             List<TidalEvent> tidalEvents = om.readValue(response.body(), new TypeReference<List<TidalEvent>>() {});
-            System.out.println(tidalEvents);
-            return tidalEvents;
+            return tidalEvents.getFirst();
         } catch(IOException | InterruptedException | URISyntaxException e) {
             e.printStackTrace();
         }
