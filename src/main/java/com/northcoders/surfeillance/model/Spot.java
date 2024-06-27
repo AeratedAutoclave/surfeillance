@@ -16,7 +16,7 @@ public class Spot {
     @Column
     private String locationName;
 
-    @Column
+    @Embedded
     private Location location;
 
     @Setter

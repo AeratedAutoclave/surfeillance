@@ -13,10 +13,12 @@ public class Trip {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long tripId;
 
-    @Column
-    private User user;
+    @ManyToOne
+    @JoinColumn(name = "userId", nullable = false)
+    private AppUser user;
 
-    @Column
+    @ManyToOne
+    @JoinColumn(name = "spotId", nullable = false)
     private Spot spot;
 
     @Setter
@@ -30,7 +32,7 @@ public class Trip {
     @Column
     private LocalDate date;
 
-    public Trip(User user, Spot spot, LocalDate date) {
+    public Trip(AppUser user, Spot spot, LocalDate date) {
         this.user = user;
         this.spot = spot;
         this.date = date;
