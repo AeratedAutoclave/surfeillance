@@ -1,7 +1,10 @@
 package com.northcoders.surfeillance.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
 import lombok.*;
+
 
 import java.time.LocalDate;
 
@@ -23,10 +26,14 @@ public class Trip {
 
     @Setter
     @Column
+    @Min(1)
+    @Max(5)
     private int surfRating;
 
     @Setter
     @Column
+    @Min(1)
+    @Max(5)
     private int infoRating;
 
     @Column
