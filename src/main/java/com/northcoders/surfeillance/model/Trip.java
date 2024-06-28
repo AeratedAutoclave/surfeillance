@@ -11,11 +11,12 @@ import java.time.LocalDate;
 
 @Entity
 @Getter
+@NoArgsConstructor
 public class Trip {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long tripId;
+    private Long tripId;
 
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
@@ -29,40 +30,40 @@ public class Trip {
     @Column
     @Min(1)
     @Max(5)
-    private int surfRating;
+    private Integer surfRating;
 
     @Setter
     @Column
     @Min(1)
     @Max(5)
-    private int infoRating;
+    private Integer infoRating;
 
     @Column
     private LocalDate date;
 
     @Column
-    private double waveHeight;
+    private Double waveHeight;
 
     @Column
     private String waveDirection;
 
     @Column
-    private double wavePeriod;
+    private Double wavePeriod;
 
     @Column
-    private double windSpeed;
+    private Double windSpeed;
 
     @Column
     private String windDirection;
 
     @Column
-    private int gusts;
+    private Integer gusts;
 
     @Column
-    private double tideHeight;
+    private Double tideHeight;
 
 
-    public Trip(AppUser user, Spot spot, LocalDate date, double waveHeight, String waveDirection, double wavePeriod, double windSpeed, String windDirection, int gusts, double tideHeight) {
+    public Trip(AppUser user, Spot spot, LocalDate date, Double waveHeight, String waveDirection, Double wavePeriod, Double windSpeed, String windDirection, Integer gusts, Double tideHeight) {
         this.user = user;
         this.spot = spot;
         this.waveHeight = waveHeight;
@@ -74,4 +75,6 @@ public class Trip {
         this.tideHeight = tideHeight;
         this.date = date;
     }
+
+
 }

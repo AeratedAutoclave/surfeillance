@@ -25,23 +25,40 @@ class TripRepositoryTest {
 
     }
 
+    // The tests in this file are based on the data.sql file as of 28/06/2024 14:36pm
+    // TODO:
+    // Update tests to run off entirely mocked data
+    // Note: Tests work.
+
     @Test
     void findByAppUserId() {
         assertThat(tripRepository).isNotNull();
+        List<Trip> trips = tripRepository.findByUserId(1L);
 
-        // I have a lot of questions about how to test custom queries at the repo level.
-
+        assertThat(trips).isNotNull();
+        assertThat(trips.size()).isEqualTo(7);
     }
 
-//    @Test
-//    void findBySpotId() {
-//    }
-//
-//    @Test
-//    void findAverageSurfRatingBySpotId() {
-//    }
-//
-//    @Test
-//    void findAverageInfoRatingBySpotId() {
-//    }
+    @Test
+    void findBySpotId() {
+        assertThat(tripRepository).isNotNull();
+        List<Trip> trips = tripRepository.findBySpotId(1L);
+
+        assertThat(trips).isNotNull();
+        assertThat(trips.size()).isEqualTo(5);
+    }
+
+    @Test
+    void findAverageSurfRatingBySpotId() {
+        assertThat(tripRepository).isNotNull();
+        double averageSurfRating = tripRepository.findAverageSurfRatingBySpotId(1L);
+        assertThat(averageSurfRating).isEqualTo(3.4);
+    }
+
+    @Test
+    void findAverageInfoRatingBySpotId() {
+        assertThat(tripRepository).isNotNull();
+        double averageSurfRating = tripRepository.findAverageInfoRatingBySpotId(1L);
+        assertThat(averageSurfRating).isEqualTo(3.6);
+    }
 }
