@@ -2,7 +2,9 @@ package com.northcoders.surfeillance.repository;
 
 import com.northcoders.surfeillance.model.Spot;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface SpotRepository extends CrudRepository<Spot, Integer> {
 
     // exists as a standard CrudRepository method

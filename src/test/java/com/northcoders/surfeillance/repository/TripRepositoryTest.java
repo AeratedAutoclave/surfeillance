@@ -1,33 +1,47 @@
 package com.northcoders.surfeillance.repository;
 
-import org.aspectj.lang.annotation.Before;
+import com.northcoders.surfeillance.model.Trip;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 
-import static org.junit.jupiter.api.Assertions.*;
+import java.util.List;
 
+import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
+import static org.mockito.Mockito.when;
+
+@ExtendWith(SpringExtension.class)
+@DataJpaTest
 class TripRepositoryTest {
 
-    TripRepository tripRepository;
+    @Autowired
+    private TripRepository tripRepository;
 
     @BeforeEach
     void setup() {
-        System.out.println("hello");
+
     }
 
     @Test
     void findByAppUserId() {
+        assertThat(tripRepository).isNotNull();
+
+        // I have a lot of questions about how to test custom queries at the repo level.
+
     }
 
-    @Test
-    void findBySpotId() {
-    }
-
-    @Test
-    void findAverageSurfRatingBySpotId() {
-    }
-
-    @Test
-    void findAverageInfoRatingBySpotId() {
-    }
+//    @Test
+//    void findBySpotId() {
+//    }
+//
+//    @Test
+//    void findAverageSurfRatingBySpotId() {
+//    }
+//
+//    @Test
+//    void findAverageInfoRatingBySpotId() {
+//    }
 }
