@@ -1,11 +1,7 @@
 package com.northcoders.surfeillance.service.apis.tidalapi;
 
-import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.northcoders.surfeillance.service.apis.tidalapi.daomodel.Root;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.SpringApplication;
-import org.springframework.context.ApplicationContext;
+import com.northcoders.surfeillance.service.apis.tidalapi.daomodel.TidalStation;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
@@ -14,9 +10,8 @@ import java.net.URISyntaxException;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
-import java.util.List;
 
-@Component
+
 public class TidalStationDAO {
 
     static TidalApiConfig config = new TidalApiConfig();
@@ -25,7 +20,7 @@ public class TidalStationDAO {
     static final String HEADER_VALUE = config.getHeaderVal();
 
 
-    public static Root tidalStationsDAO(){
+    public static TidalStation tidalStationsDAO(){
 
         ObjectMapper om = new ObjectMapper();
         try {
@@ -36,8 +31,8 @@ public class TidalStationDAO {
                     .GET().build();
             var response = client.send(req, HttpResponse.BodyHandlers.ofString());
 
-            var root = om.readValue(response.body(), Root.class);
-            return root;
+            var tidalstations = om.readValue(response.body(), TidalStation.class);
+            return tidalstations;
         } catch(IOException | InterruptedException | URISyntaxException e) {
             e.printStackTrace();
         }
