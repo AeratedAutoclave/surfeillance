@@ -10,7 +10,11 @@ public class AppUser {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long userId;
+    private long id;
+
+    @Setter
+    @Column
+    private String userName;
 
     @Setter
     @Column

@@ -10,7 +10,7 @@ public class Spot {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long spotId;
+    private long id;
 
     @Setter
     @Column
@@ -21,10 +21,10 @@ public class Spot {
 
     @Setter
     @Column
-    private String tideStationId;
+    private String tidestationId;
 
     public Spot(long spotId, String locationName, Location location) {
-        this.spotId = spotId;
+        this.id = spotId;
         this.locationName = locationName;
         this.location = location;
     }

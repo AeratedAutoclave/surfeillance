@@ -17,11 +17,11 @@ public class Trip {
     private long tripId;
 
     @ManyToOne
-    @JoinColumn(name = "userId", nullable = false)
+    @JoinColumn(name = "user_id", nullable = false)
     private AppUser user;
 
     @ManyToOne
-    @JoinColumn(name = "spotId", nullable = false)
+    @JoinColumn(name = "spot_id", nullable = false)
     private Spot spot;
 
     @Setter
