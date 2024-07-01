@@ -12,17 +12,23 @@ public class TidalEventDTO {
 
     public double height;
 
-    public TidalEventDTO(String eventType, Date dateTime, double height) {
+    private String stationId;
+
+    public TidalEventDTO(String eventType, Date dateTime, double height, String id) {
         this.eventType = eventType;
         this.dateTime = dateTime;
         this.height = height;
+        this.stationId = id;
     }
 
-    public static TidalEventDTO tidalEventToTidalEventDTO(TidalEvent tidalEvent) {
+    public static TidalEventDTO tidalEventToTidalEventDTO(TidalEvent tidalEvent, String id) {
+
+
         return new TidalEventDTO(
                 tidalEvent.getEventType(),
                 tidalEvent.getDateTime(),
-                tidalEvent.getHeight()
+                tidalEvent.getHeight(),
+                id
         );
     }
 
@@ -48,5 +54,13 @@ public class TidalEventDTO {
 
     public void setHeight(double height) {
         this.height = height;
+    }
+
+    public String getStationId() {
+        return stationId;
+    }
+
+    public void setStationId(String stationId) {
+        this.stationId = stationId;
     }
 }
