@@ -17,16 +17,16 @@ public class Spot {
     private String locationName;
 
     @Embedded
-    private Location location;
+    private Coordinate coordinate;
 
     @Setter
     @Column
     private String tideStationId;
 
-    public Spot(long spotId, String locationName, Location location) {
+    public Spot(long spotId, String locationName, Coordinate coordinate) {
         this.spotId = spotId;
         this.locationName = locationName;
-        this.location = location;
+        this.coordinate = coordinate;
     }
 
 }
