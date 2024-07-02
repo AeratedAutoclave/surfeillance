@@ -14,21 +14,21 @@ public class TidalEventDTO {
 
     private String stationId;
 
-    public TidalEventDTO(String eventType, Date dateTime, double height, String id) {
+    public TidalEventDTO(String eventType, Date dateTime, double height) {
         this.eventType = eventType;
         this.dateTime = dateTime;
         this.height = height;
-        this.stationId = id;
+
     }
 
-    public static TidalEventDTO tidalEventToTidalEventDTO(TidalEvent tidalEvent, String id) {
+    public static TidalEventDTO tidalEventToTidalEventDTO(String id) {
 
+        TidalEventDTO tidalEvent = TidalEventDTO.tidalEventToTidalEventDTO(id);
 
         return new TidalEventDTO(
                 tidalEvent.getEventType(),
                 tidalEvent.getDateTime(),
-                tidalEvent.getHeight(),
-                id
+                tidalEvent.getHeight()
         );
     }
 
