@@ -6,6 +6,7 @@ import lombok.*;
 
 @Entity
 @Getter
+@NoArgsConstructor
 public class Spot {
 
     @Id
@@ -17,16 +18,17 @@ public class Spot {
     private String locationName;
 
     @Embedded
-    private Location location;
+    private Coordinate coordinate;
 
     @Setter
     @Column
     private String tideStationId;
 
-    public Spot(long spotId, String locationName, Location location) {
-        this.spotId = spotId;
+    public Spot(long id, String locationName, Coordinate coordinate, String tideStationId) {
+        this.spotId = id;
         this.locationName = locationName;
-        this.location = location;
+        this.coordinate = coordinate;
+        this.tideStationId = tideStationId;
     }
 
 }
