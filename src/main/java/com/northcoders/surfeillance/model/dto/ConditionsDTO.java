@@ -27,7 +27,7 @@ public class ConditionsDTO {
 
     public ConditionsDTO(Spot spot, CurrentMarineData currentMarineData, CurrentWeatherData currentWeatherData, TidalEvent tidalEventDTO) {
         this.name = spot.getLocationName();
-        this.details =
+        this.details = spot.getLocationName() + " is a beautiful place to go for a surf";
         this.requestTime = currentMarineData.current().time();
         this.latitude = spot.getCoordinate().getLatitude();
         this.longitude = spot.getCoordinate().getLongitude();
