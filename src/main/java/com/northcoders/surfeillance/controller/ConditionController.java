@@ -37,11 +37,4 @@ public class ConditionController {
             return new ResponseEntity<>(list, HttpStatus.OK);
         }
     }
-
-    @GetMapping(value ="/{id}")
-    public void getCondition() {
-        // I don't think it's real but I'm putting it here to acknowledge
-        // that we may allow searching by name or lat/long query params
-        // at some points
-    }
 }

@@ -70,9 +70,6 @@ public class UserController {
         }
     }
 
-    // For the below,
-    // MAKE SURE TO USE THE CORRECT DTO OBJECTS
-
     @PostMapping(value = "/trips/add")
     public ResponseEntity<Trip> addTrip(@RequestBody NewTripDTO newTrip) {
         Trip createdTrip = tripService.createTrip(newTrip);
@@ -84,9 +81,9 @@ public class UserController {
 
     }
 
-    @PutMapping(value = "/trips/{userId}")
-    public ResponseEntity<Trip> updateTrip(@PathVariable int userId, @RequestBody TripUpdatesDTO tripUpdates) {
-        Trip updatedTrip = tripService.updateTrip(userId, tripUpdates);
+    @PutMapping(value = "/trips/{tripId}")
+    public ResponseEntity<Trip> updateTrip(@PathVariable int tripId, @RequestBody TripUpdatesDTO tripUpdates) {
+        Trip updatedTrip = tripService.updateTrip(tripId, tripUpdates);
         if (updatedTrip == null) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Trip Update Failed");
         } else {
