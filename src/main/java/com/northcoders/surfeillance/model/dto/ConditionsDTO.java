@@ -23,9 +23,7 @@ public class ConditionsDTO {
     Double windSpeed;
     Double gusts;
     Double highTideHeight;
-    String highTideTime;
     Double lowTideHeight;
-    String lowTideTime;
 
     public ConditionsDTO(Spot spot, CurrentMarineData currentMarineData, CurrentWeatherData currentWeatherData, TidalEvent tidalEventDTO) {
         this.name = spot.getLocationName();
