@@ -69,13 +69,21 @@ class ServiceImplTest {
         when(mockIterator.hasNext()).thenReturn(true, true, false);
         when(mockIterator.next()).thenReturn(spotOne, spotTwo);
 
+        CurrentWeatherData currentWeatherData = new CurrentWeatherData(0.5, 0.5, "GMT", 1.5, new CurrentWindUnits("12:00", "0.5", "4", "6", "10"),
+                new CurrentWindData("12:00", 0.1, 1.5, 2.0, 3.1));
         ConditionsDTO conditionOne = new ConditionsDTO(
                 new Spot(1L, "The Beach", new Coordinate(0.5, 0.5), "ABC123"),
-                null, null,null);
+                new CurrentMarineData(0.5, 0.5, "GMT", new CurrentWaveUnits("time", "seconds", "1.0", "SW", "0.5"),
+                        new CurrentWaveData("12:00", 2L, 5.0, "N", 1.0)),
+                currentWeatherData,
+                new TidalEvent());
 
         ConditionsDTO conditionTwo = new ConditionsDTO(
                 new Spot(2L, "Pebble Breach", new Coordinate(1.5, 1.5), "ABC456"),
-                null, null,null);
+                new CurrentMarineData(0.7, 0.5, "UCT", new CurrentWaveUnits("time", "seconds", "1.0", "SW", "0.5"),
+                        new CurrentWaveData("12:30", 2L, 5.0, "N", 1.0)),
+                currentWeatherData,
+                new TidalEvent());
 
         when(conditionsBuilder.conditionBuilder(spotOne)).thenReturn(conditionOne);
         when(conditionsBuilder.conditionBuilder(spotTwo)).thenReturn(conditionTwo);
