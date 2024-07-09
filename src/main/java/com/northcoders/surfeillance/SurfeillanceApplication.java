@@ -34,13 +34,14 @@ public class SurfeillanceApplication {
 	public static void main(String[] args) {
 
 		SpringApplication.run(SurfeillanceApplication.class, args);
-
-		TidesDTO tides = TidalEventDAO.getTideByLocation("0265");
-
-//		ServiceImpl service = new ServiceImpl();
-//		List<ConditionsDTO> conditions = service.getConditions();
 //
-		System.out.println(tides);
+//		TidesDTO tides = TidalEventDAO.getTideByLocation("0265");
+//
+////		ServiceImpl service = new ServiceImpl();
+////		List<ConditionsDTO> conditions = service.getConditions();
+////
+//		System.out.println("tides");
+//		System.out.println(tides);
 
 
 

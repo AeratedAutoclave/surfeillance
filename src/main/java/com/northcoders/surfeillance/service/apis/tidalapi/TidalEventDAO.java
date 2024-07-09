@@ -31,10 +31,15 @@ public class TidalEventDAO {
                     .header(HEADER_KEY,HEADER_VALUE)
                     .GET().build();
             var response = client.send(req, HttpResponse.BodyHandlers.ofString());
+            System.out.println("00000000000000000");
+            System.out.println(response.body());
+            System.out.println("URL: " + url);
 
+            // Error at this point \/
             TidalResponse tidalResponse = om.readValue(response.body(), TidalResponse.class);
 
 
+            System.out.println("returning");
             return TidesUtil.getForthComingTides(tidalResponse.getEvents());
         } catch(IOException | InterruptedException | URISyntaxException e) {
             e.printStackTrace();
